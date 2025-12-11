@@ -1,4 +1,4 @@
-import { BrowserRouter, Router, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import DefaultLayout from "./components/DefaultLayout"
 import HomePage from "./pages/HomePage"
 
@@ -7,11 +7,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Router>
+        <Routes>
           <Route element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
           </Route>
-        </Router>
+        </Routes>
       </BrowserRouter>
     </>
   )
