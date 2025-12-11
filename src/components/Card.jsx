@@ -2,7 +2,7 @@ export default function Card({title, director, genre, year}) {
   return (
     <>
       <div className="col">
-        <div className="card">
+        <div className="card h-100">
           <div className="bg-body-secondary p-5">
             <h6>{title}</h6>
           </div>
