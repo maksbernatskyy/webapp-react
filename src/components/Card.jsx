@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import SingleCard from "../pages/SingleCard";
+
 export default function Card({title, director, genre, year}) {
   return (
     <>
@@ -20,6 +23,9 @@ export default function Card({title, director, genre, year}) {
                 </li>
                 <li>
                     <span><strong>{year}</strong></span>
+                </li>
+                <li>
+                    <Link to='/:id'>Go to details</Link>
                 </li>
             </ul>
           </div>
