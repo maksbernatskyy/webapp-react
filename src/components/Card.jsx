@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import SingleCard from "../pages/SingleCard";
 
-export default function Card({title, director, genre, year}) {
+export default function Card({title, director, genre, year, id}) {
   return (
     <>
       <div className="col">
@@ -25,7 +24,7 @@ export default function Card({title, director, genre, year}) {
                     <span><strong>{year}</strong></span>
                 </li>
                 <li>
-                    <Link to='/:id'>Go to details</Link>
+                    <Link to={`/${id}`}>Go to details</Link>
                 </li>
             </ul>
           </div>

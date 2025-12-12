@@ -23,6 +23,7 @@ export default function HomePage() {
                     todos.map((thisTodo) => (
                         <Card 
                           key={thisTodo.id}
+                          id={thisTodo.id}
                           title={thisTodo.title}
                           director={thisTodo.director}
                           genre={thisTodo.genre}
