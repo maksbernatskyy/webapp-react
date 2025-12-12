@@ -24,7 +24,7 @@ export default function Card({title, director, genre, year, id}) {
                     <span><strong>{year}</strong></span>
                 </li>
                 <li>
-                    <Link to={`/${id}`}>Go to details</Link>
+                    <Link className="btn btn-primary" to={`/${id}`}>Go to details</Link>
                 </li>
             </ul>
           </div>
