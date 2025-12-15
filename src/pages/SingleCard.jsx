@@ -21,9 +21,8 @@ export default function SingleCard() {
       .then((res) => setReviews(res.data))
       .catch((err) => console.error(`error: ${err}`));
   }
+
   useEffect(fetchCard, []);
-  console.log(card);
-  console.log(reviews);
 
   return (
     <>
@@ -38,7 +37,16 @@ export default function SingleCard() {
         </div>
         <div>
           <h3 className="my-3">Reviews</h3>
-          <div className="card p-3 w-50"></div>
+          {reviews.map((thisReview) => (
+            <Review
+              key={thisReview.id}
+              name={thisReview.name}
+              vote={thisReview.vote}
+              text={thisReview.text}
+              created_at={thisReview.created_at}
+              updated_at={thisReview.updated_at}
+            />
+          ))}
         </div>
       </div>
     </>
