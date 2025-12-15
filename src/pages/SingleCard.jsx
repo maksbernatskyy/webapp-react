@@ -64,7 +64,7 @@ export default function SingleCard() {
         </div>
         <div className="m-5">
           <Form 
-            path={newId}
+            path={`http://localhost:3000/movies/${id}/reviews`}
             name={formData.name}
             vote={formData.vote}
             text={formData.text}
