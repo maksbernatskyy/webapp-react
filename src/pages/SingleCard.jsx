@@ -2,20 +2,28 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../components/Card";
+import Review from "../components/Review";
 
 export default function SingleCard() {
   const { id } = useParams();
 
   const [card, setCard] = useState({});
+  const [reviews, setReviews] = useState([]);
 
   function fetchCard() {
     axios
       .get(`http://localhost:3000/movies/${id}`)
       .then((res) => setCard(res.data))
       .catch((err) => console.error(`error: ${err}`));
-  }
 
+    axios
+      .get(`http://localhost:3000/movies/${id}/reviews`)
+      .then((res) => setReviews(res.data))
+      .catch((err) => console.error(`error: ${err}`));
+  }
   useEffect(fetchCard, []);
+  console.log(card);
+  console.log(reviews);
 
   return (
     <>
@@ -30,12 +38,7 @@ export default function SingleCard() {
         </div>
         <div>
           <h3 className="my-3">Reviews</h3>
-          <div className="card p-3 w-50">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-              minima!
-            </p>
-          </div>
+          <div className="card p-3 w-50"></div>
         </div>
       </div>
     </>
