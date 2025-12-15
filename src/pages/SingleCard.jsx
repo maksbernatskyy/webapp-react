@@ -3,12 +3,19 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 import Review from "../components/Review";
+import Form from "../components/Form";
 
 export default function SingleCard() {
   const { id } = useParams();
+  const newId = Date.now()
 
   const [card, setCard] = useState({});
   const [reviews, setReviews] = useState([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    vote: 0,
+    text: ''
+  })
 
   function fetchCard() {
     axios
@@ -23,6 +30,13 @@ export default function SingleCard() {
   }
 
   useEffect(fetchCard, []);
+
+  function handleFormData(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
 
   return (
     <>
@@ -49,7 +63,13 @@ export default function SingleCard() {
           ))}
         </div>
         <div className="m-5">
-
+          <Form 
+            path={newId}
+            name={formData.name}
+            vote={formData.vote}
+            text={formData.text}
+            handleFunction={handleFormData}
+          />
         </div>
       </div>
     </>
