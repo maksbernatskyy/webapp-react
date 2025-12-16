@@ -2,8 +2,8 @@ import { createContext, useContext, useState } from "react";
 
 const GlobalContext = createContext();
 
-function globalProvider({ children }) {
-  const [loading, setLoading] = useState();
+function GlobalProvider({ children }) {
+  const [loading, setLoading] = useState(true);
 
   return (
     <GlobalContext.Provider
@@ -22,4 +22,4 @@ function useLoading() {
   return context;
 }
 
-export { GlobalContext, useLoading };
+export { GlobalProvider, useLoading };
