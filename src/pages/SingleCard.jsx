@@ -7,7 +7,6 @@ import Form from "../components/Form";
 
 export default function SingleCard() {
   const { id } = useParams();
-  const newId = Date.now()
 
   const [card, setCard] = useState({});
   const [reviews, setReviews] = useState([]);
@@ -38,6 +37,23 @@ export default function SingleCard() {
     })
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log('clicked')
+
+    axios.post(`http://localhost:3000/movies/${id}/reviews`, {
+      name: formData.name,
+      vote: formData.vote,
+      text: formData.text
+      })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  }
+
   return (
     <>
       <div className="container">
@@ -64,7 +80,7 @@ export default function SingleCard() {
         </div>
         <div className="m-5">
           <Form 
-            path={`http://localhost:3000/movies/${id}/reviews`}
+            handleSubmit={handleSubmit}
             name={formData.name}
             vote={formData.vote}
             text={formData.text}

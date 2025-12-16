@@ -1,7 +1,7 @@
-export default function Form({name, vote, text, path, handleFunction}) {
+export default function Form({name, vote, text, handleSubmit, handleFunction}) {
     return (
         <>
-          <form action={path} method="POST">
+          <form onSubmit={handleSubmit}>
              <input type="text" name="name" value={name} placeholder="Your name" onChange={handleFunction} />
              <input type="number" name="vote" value={vote} placeholder="Insert the vote" onChange={handleFunction} />
              <input type="text" name="text" value={text} placeholder="Text" onChange={handleFunction} />
