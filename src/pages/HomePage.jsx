@@ -1,11 +1,14 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
+// Import markup of single card
 import Card from "../components/Card"
 
 export default function HomePage() {
 
+    {/* State for all movies */}
     const [todos, setTodos] = useState([])
 
+    {/* Function for call movies */}
     function fetchTodos() {
         axios.get('http://localhost:3000/movies')
           .then((res) => setTodos(res.data))
@@ -13,6 +16,7 @@ export default function HomePage() {
     }
     console.log(todos)
 
+    {/* Load at open of the page the cards */}
     useEffect(fetchTodos, [])
 
     return (
