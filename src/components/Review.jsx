@@ -1,4 +1,4 @@
-export default function Review({ name, vote, text, created_at, updated_at }) {
+export default function Review({ name, vote, text}) {
   return (
     <>
       <div className="card p-3 w-50">
